@@ -1,0 +1,25 @@
+# Blueprint do Render: publica a pasta public/ como site estático (sem custo de servidor).
+# Render > New > Blueprint > selecione este repositório.
+services:
+  - type: web
+    name: clinica-antolli
+    runtime: static
+    buildCommand: echo "Site estático, sem etapa de build"
+    staticPublishPath: ./public
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=86400
+      - path: /assets/js/config.js
+        name: Cache-Control
+        value: no-cache

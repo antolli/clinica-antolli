@@ -1,0 +1,2 @@
+Cormorant Garamond e DM Sans são distribuídas sob a SIL Open Font License 1.1.
+Arquivos obtidos dos pacotes @fontsource (npm). Hospedadas no próprio site para não depender do Google Fonts.
