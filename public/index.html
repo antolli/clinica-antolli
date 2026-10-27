@@ -103,7 +103,17 @@
         </ol>
         <div class="chips-list">
           <p class="chips-list__title">Opções mensais do plano</p>
-          <ul id="planoOpcoes"></ul>
+          <ul id="planoOpcoes">
+            <li class="chips-list__item">Preenchimento 1 ml</li>
+            <li class="chips-list__item">Botox</li>
+            <li class="chips-list__item">Skin booster</li>
+            <li class="chips-list__item">Bioestimulador de colágeno</li>
+            <li class="chips-list__item">Microagulhamento</li>
+            <li class="chips-list__item">Peeling químico</li>
+            <li class="chips-list__item">Limpeza de pele profunda</li>
+            <li class="chips-list__item">Fios de PDO</li>
+            <li class="chips-list__item">Enzimas para gordura localizada</li>
+          </ul>
         </div>
         <p class="fineprint">Nenhum procedimento é feito sem indicação. Condições, valores e regras de cancelamento são apresentados na avaliação e ficam no contrato.</p>
         <a href="#" class="btn btn--dark" data-wa="Olá! Vi no site o Plano Manutenção 12 meses e quero entender como funciona.">Quero saber do plano<svg><use href="#i-arrow"/></svg></a>
@@ -122,18 +132,45 @@
         <p class="launch__lead">Protocolo em etapas para firmeza, textura e contorno da região glútea e posterior das coxas. O estímulo de colágeno acontece aos poucos, ao longo de semanas. Por isso o projeto começa agora, antes do verão.</p>
         <ol class="steps">
           <li><strong>Avaliação corporal</strong> com fotos padronizadas e definição das áreas.</li>
-          <li><strong>Sessões do protocolo</strong> com bioestimulador de colágeno e técnicas complementares, conforme indicação.</li>
+          <li><strong>Sessões do protocolo</strong> com preenchimento, bioestimulador de colágeno e técnicas complementares, conforme indicação.</li>
           <li><strong>Cuidados em casa e retorno</strong> para acompanhar a evolução.</li>
         </ol>
         <p class="fineprint">Usamos apenas produtos com registro na Anvisa e indicação para uso corporal. Não usamos PMMA. A resposta ao tratamento é individual.</p>
         <a href="#" class="btn btn--dark" data-wa="Olá! Vi no site o Projeto Bumbum 360 e quero agendar a avaliação corporal.">Quero minha avaliação corporal<svg><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="launch__visual launch__visual--ring" aria-hidden="true">
-        <div class="ring">
-          <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" class="ring__track"/><circle cx="100" cy="100" r="88" class="ring__bar" id="ringBar"/></svg>
-          <div class="ring__label"><strong id="diasVerao">--</strong><span>dias para o verão</span></div>
+      <div class="launch__visual launch__visual--gallery">
+        <div class="carousel" data-carousel role="region" aria-roledescription="carrossel" aria-label="Fotos do Projeto Bumbum 360">
+          <div class="carousel__track" tabindex="0">
+            <figure class="carousel__slide" aria-roledescription="slide" aria-label="1 de 3">
+              <div class="carousel__frame">
+                <img src="assets/img/resultados/bumbum-1.jpg" alt="Região glútea de perfil, antes (à esquerda) e depois (à direita) do protocolo" width="1100" height="849" loading="lazy">
+              </div>
+              <figcaption>Antes e depois</figcaption>
+            </figure>
+            <figure class="carousel__slide" aria-roledescription="slide" aria-label="2 de 3">
+              <div class="carousel__frame">
+                <img src="assets/img/resultados/bumbum-2.jpg" alt="Região glútea com os pontos de aplicação após a sessão" width="284" height="269" loading="lazy">
+              </div>
+              <figcaption>Pontos de aplicação após a sessão</figcaption>
+            </figure>
+            <figure class="carousel__slide" aria-roledescription="slide" aria-label="3 de 3">
+              <div class="carousel__frame">
+                <img src="assets/img/resultados/bumbum-3.jpg" alt="Aplicação do protocolo na região glútea, na clínica" width="262" height="280" loading="lazy">
+              </div>
+              <figcaption>Aplicação na clínica</figcaption>
+            </figure>
+          </div>
+          <div class="carousel__controls">
+            <button type="button" class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Foto anterior"><svg><use href="#i-arrow"/></svg></button>
+            <div class="carousel__dots"></div>
+            <button type="button" class="carousel__btn" data-carousel-next aria-label="Próxima foto"><svg><use href="#i-arrow"/></svg></button>
+          </div>
         </div>
-        <p class="ring__caption">O verão começa em <span id="dataVerao">21 de dezembro</span></p>
+        <div class="countdown">
+          <p class="countdown__count"><strong id="diasVerao">--</strong><span>dias para o verão</span></p>
+          <p class="countdown__caption">O verão começa em <span id="dataVerao">21 de dezembro</span></p>
+        </div>
+        <p class="fineprint">Fotos publicadas com autorização da paciente.</p>
       </div>
     </article>
 
