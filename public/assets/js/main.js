@@ -178,6 +178,62 @@
     });
   }
 
+  /* ---------- Carrossel de fotos (Bumbum 360) ---------- */
+  var reduzMovimento = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-carousel]").forEach(function (root) {
+    var track = root.querySelector(".carousel__track");
+    var slides = Array.prototype.slice.call(track.children);
+    var prev = root.querySelector("[data-carousel-prev]");
+    var next = root.querySelector("[data-carousel-next]");
+    var dotsWrap = root.querySelector(".carousel__dots");
+    var atual = 0;
+
+    if (slides.length < 2) {
+      root.querySelector(".carousel__controls").hidden = true;
+      return;
+    }
+
+    var dots = slides.map(function (slide, i) {
+      var dot = el("button", { type: "button", class: "carousel__dot", "aria-label": "Foto " + (i + 1) + " de " + slides.length });
+      dot.addEventListener("click", function () { irPara(i); });
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function irPara(i) {
+      var alvo = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: alvo * track.clientWidth, behavior: reduzMovimento ? "auto" : "smooth" });
+    }
+
+    function atualizar() {
+      atual = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+      dots.forEach(function (dot, k) { dot.setAttribute("aria-current", k === atual ? "true" : "false"); });
+      slides.forEach(function (slide, k) { slide.setAttribute("aria-hidden", k === atual ? "false" : "true"); });
+      prev.disabled = atual === 0;
+      next.disabled = atual === slides.length - 1;
+    }
+
+    var agendado = false;
+    track.addEventListener("scroll", function () {
+      if (agendado) return;
+      agendado = true;
+      window.requestAnimationFrame(function () {
+        agendado = false;
+        atualizar();
+      });
+    }, { passive: true });
+
+    prev.addEventListener("click", function () { irPara(atual - 1); });
+    next.addEventListener("click", function () { irPara(atual + 1); });
+    track.addEventListener("keydown", function (ev) {
+      if (ev.key === "ArrowRight") { ev.preventDefault(); irPara(atual + 1); }
+      if (ev.key === "ArrowLeft") { ev.preventDefault(); irPara(atual - 1); }
+    });
+    window.addEventListener("resize", function () { track.scrollLeft = atual * track.clientWidth; });
+
+    atualizar();
+  });
+
   /* ---------- Depoimentos reais ---------- */
   var depoimentos = get("depoimentos") || [];
   var depSection = document.getElementById("depoimentos");

@@ -210,13 +210,39 @@ svg { width: 1em; height: 1em; flex-shrink: 0; }
 .month.is-review { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .months__caption, .ring__caption { font-size: .85rem; color: var(--muted); margin: 0; text-align: center; }
 
-.ring { position: relative; width: min(100%, 260px); aspect-ratio: 1; }
-.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-.ring__track { fill: none; stroke: var(--line); stroke-width: 6; }
-.ring__bar { fill: none; stroke: var(--rose); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 553; stroke-dashoffset: 553; transition: stroke-dashoffset 1.2s ease; }
-.ring__label { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
-.ring__label strong { font-family: var(--serif); font-size: 4rem; font-weight: 500; line-height: 1; }
-.ring__label span { font-size: .82rem; color: var(--muted); letter-spacing: .08em; }
+/* Bumbum 360: carrossel de fotos e contagem até o verão */
+.launch__visual--gallery { place-items: stretch; gap: 16px; padding: clamp(14px, 2.4vw, 20px); min-width: 0; }
+.carousel { display: grid; gap: 12px; min-width: 0; }
+.carousel__track {
+  display: flex; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; border-radius: 16px; scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__track:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.carousel__slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; display: grid; gap: 10px; }
+.carousel__frame { position: relative; aspect-ratio: 13 / 10; max-width: 100%; border-radius: 16px; overflow: hidden; background: var(--cream-2); }
+.carousel__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.carousel__slide figcaption { font-size: .84rem; color: var(--muted); text-align: center; }
+.carousel__controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.carousel__btn {
+  width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+  display: grid; place-items: center; cursor: pointer; transition: border-color .2s, opacity .2s;
+}
+.carousel__btn:hover:not(:disabled) { border-color: var(--gold); }
+.carousel__btn:disabled { opacity: .35; cursor: default; }
+.carousel__btn svg { width: 18px; height: 18px; }
+.carousel__btn--prev svg { transform: rotate(180deg); }
+.carousel__dots { display: flex; gap: 4px; }
+.carousel__dot { width: 28px; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; }
+.carousel__dot::before { content: ""; width: 8px; height: 8px; border-radius: 4px; background: var(--line); transition: width .2s, background .2s; }
+.carousel__dot[aria-current="true"]::before { width: 22px; background: var(--rose); }
+.countdown { display: grid; gap: 2px; justify-items: center; text-align: center; padding-top: 14px; border-top: 1px solid var(--line); }
+.countdown__count { display: flex; align-items: baseline; gap: 10px; margin: 0; }
+.countdown__count strong { font-family: var(--serif); font-size: 2.6rem; font-weight: 500; line-height: 1; color: var(--rose); }
+.countdown__count span { font-size: .9rem; color: var(--ink-2); }
+.countdown__caption { font-size: .82rem; color: var(--muted); margin: 0; }
+.launch__visual--gallery .fineprint { margin: 0; text-align: center; }
 
 .launch--lab { grid-template-columns: 1fr; }
 .kits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }

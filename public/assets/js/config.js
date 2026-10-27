@@ -1,7 +1,7 @@
 
 window.CLINICA = {
   nome: "Clínica Antolli",
-  siteUrl: "https://clinica-antolli.onrender.com", 
+  siteUrl: "https://clinica-antolli.onrender.com/", 
 
   profissional: {
     nome: "Dra. Érica Antolli",
