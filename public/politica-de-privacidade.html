@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de privacidade | Clínica Antolli</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .policy { max-width: 760px; margin: 0 auto; padding: 56px var(--gutter) 96px; }
+    .policy h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
+    .policy h2 { font-size: 1.6rem; margin-top: 2em; }
+    .policy li { color: var(--ink-2); margin-bottom: .4em; }
+    .policy__back { display: inline-block; margin-bottom: 32px; font-size: .9rem; color: var(--gold-dark); }
+  </style>
+</head>
+<body>
+  <main class="policy">
+    <a class="policy__back" href="./">Voltar ao site</a>
+    <h1>Política de privacidade</h1>
+    <p>Última atualização: outubro de 2026.</p>
+    <p>Esta política explica como a Clínica Antolli (<span data-cfg="profissional.nome">Dra. Érica Antolli</span>, <span data-cfg="profissional.crf">CRF-PR</span>) trata os dados pessoais recebidos pelo site, pelo assistente virtual e pelo WhatsApp, conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+
+    <h2>Quais dados coletamos</h2>
+    <ul>
+      <li>Nome, número de WhatsApp, interesse e período preferido, quando você preenche o formulário de agendamento.</li>
+      <li>Mensagens que você escreve no assistente virtual do site ou no WhatsApp.</li>
+      <li>Dados técnicos básicos do navegador, como páginas acessadas, usados apenas para o site funcionar.</li>
+    </ul>
+    <p>O site não pede dados de saúde. Informações de saúde são tratadas na consulta, com o seu consentimento e no prontuário.</p>
+
+    <h2>Para que usamos</h2>
+    <ul>
+      <li>Responder dúvidas e agendar avaliações e procedimentos.</li>
+      <li>Enviar informações sobre o atendimento que você pediu.</li>
+      <li>Enviar novidades da clínica, apenas se você autorizar. Você pode pedir para parar a qualquer momento.</li>
+    </ul>
+
+    <h2>Assistente virtual</h2>
+    <p>O assistente do site e do WhatsApp é um sistema automático que usa inteligência artificial para responder perguntas gerais. Ele não faz diagnóstico nem indica tratamento. As conversas podem ser processadas por fornecedores de tecnologia (hospedagem, automação e modelo de linguagem) que atuam como operadores, apenas para gerar a resposta. Quando necessário, a conversa é passada para a equipe da clínica.</p>
+
+    <h2>Compartilhamento</h2>
+    <p>Não vendemos dados. Compartilhamos apenas com fornecedores necessários para o atendimento, como WhatsApp (Meta), serviço de hospedagem do site e ferramenta de automação.</p>
+
+    <h2>Por quanto tempo guardamos</h2>
+    <p>Pelo tempo necessário para o atendimento e para cumprir obrigações legais. Conversas do assistente são apagadas periodicamente.</p>
+
+    <h2>Seus direitos</h2>
+    <p>Você pode pedir acesso, correção, exclusão dos seus dados ou revogar o consentimento pelo WhatsApp da clínica, <span id="contatoPolitica">(43) 99660-2325</span>.</p>
+  </main>
+  <script src="assets/js/config.js"></script>
+  <script>
+    document.querySelectorAll("[data-cfg]").forEach(function (n) {
+      var v = n.getAttribute("data-cfg").split(".").reduce(function (o, k) { return o && o[k]; }, window.CLINICA);
+      if (v) n.textContent = v;
+    });
+    (function () {
+      var c = window.CLINICA || {};
+      var d = String((c.whatsapp || {}).numero || "").replace(/\D/g, "").replace(/^55/, "");
+      var tel = d.length === 11 ? "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7) : d;
+      var alvo = document.getElementById("contatoPolitica");
+      if (alvo && tel) alvo.textContent = tel + (c.email ? " ou pelo e-mail " + c.email : "");
+    })();
+  </script>
+</body>
+</html>
