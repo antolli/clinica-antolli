@@ -117,7 +117,7 @@
       return "Vamos agendar! Toque no link para continuar no WhatsApp com a mensagem pronta, e a equipe confirma o melhor horário: " + wa("Olá! Quero agendar uma avaliação.");
     }
     if (/tratamento|procedimento|faz|oferece|servico|botox|toxina|preench|harmoniz|bioestim|skinbooster|laser|mancha|olheira|labio/.test(t)) {
-      return "Fazemos toxina botulínica, preenchimento com ácido hialurônico, harmonização facial, bioestimuladores de colágeno, skinbooster, laser para manchas, tratamento capilar para queda e calvície e protocolos corporais.\n\nA indicação sempre vem da avaliação. Quer perguntar sobre algum? " + wa("Olá! Tenho uma dúvida sobre um tratamento.");
+      return "Fazemos tratamento de linhas de expressão, preenchimento com ácido hialurônico, harmonização facial, bioestimuladores de colágeno, skinbooster, laser para manchas, tratamento capilar para queda e calvície e protocolos corporais.\n\nA indicação sempre vem da avaliação. Quer perguntar sobre algum? " + wa("Olá! Tenho uma dúvida sobre um tratamento.");
     }
     if (/atendente|humano|pessoa|doutora|dra|erica|falar com/.test(t)) {
       return "Claro. Toque aqui para falar com a equipe no WhatsApp: " + wa("Olá! Gostaria de falar com a equipe da clínica.");
